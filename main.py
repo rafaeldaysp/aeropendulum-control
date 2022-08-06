@@ -50,9 +50,6 @@ def pid_control(r, y):
     
     return int(u)
 
-def pot_to_angle(pot):
-    return (pot*270)/(2**16 - 1)
-
 def convert_scale(x, x_max, y_max):
     return y_max*x/x_max
 
