@@ -31,6 +31,8 @@ title('Coletado')
 
 subplot(2, 1, 2)
 plot(t, simulated_sys);
+hold on
+plot(t, y);
 title('Estimação')
 
 %% Sistema estimado
