@@ -6,8 +6,8 @@ clear;
 
 dados = csvread('dados_convertidos.csv', 1);
 t = dados(:, 2);
-y = dados(:, 3);
-u = dados(:, 4);
+y = dados(:, 4);
+u = dados(:, 3);
 
 %% Gera função de transferência
 
@@ -31,10 +31,16 @@ title('Coletado')
 
 subplot(2, 1, 2)
 plot(t, simulated_sys);
+
 hold on
 plot(t, y);
+
+hold on
+plot(t, u);
+legend('Estimado', 'Coletado', 'Entrada')
 title('Estimação')
 
 %% Sistema estimado
 
-sys
+Gs = sys;
+Gz = c2d(sys, dt);
