@@ -27,11 +27,6 @@ uint16_t pi(float r, float y) {
   float e, u;
   e = r - y;
   u = u_1 + 0.016381*e + 0.016381 * e_1;
-  /*
-   2.4201 (z-0.844) (z+0.317)
-  --------------------------
-            z(z-1)
-  */
 
   if (u > MAX_INPUT_ANGLE)
     u = MAX_INPUT_ANGLE;
