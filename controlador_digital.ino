@@ -23,7 +23,7 @@ float e_1 = 0, e_2 = 0, u_1 = 0, u_2 = 0, input_angle = -1, output_angle, input_
 
 String data_values;
 
-uint16_t pid(float r, float y) {
+uint16_t pi(float r, float y) {
   float Kp = 1, Ki = 0.05, Kd = 0.02, e, u;
 
   e = r - y;
@@ -86,7 +86,7 @@ void loop() {
     start_time = millis();
     output_pot_value = analogRead(ADC_OUTPUT_PIN);
     output_angle = convert_scale(output_pot_value, MAX_BITS, MAX_OUTPUT_ANGLE) - OFFSET_POTENTIOMETER;
-    pid_value = pid(input_angle, output_angle);
+    pid_value = pi(input_angle, output_angle);
     pwm_value = convert_scale(pid_value, MAX_INPUT_ANGLE, MAX_PWM_VALUE);        
     if (Serial.available() > 0){
       input_angle = Serial.parseFloat();
