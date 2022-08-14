@@ -47,8 +47,8 @@ void setup() {
 
 float time_s = 0;
 void loop() {
-  if(millis() - start_time > SAMPLE_TIME){
 
+  if(millis() - start_time > SAMPLE_TIME){
     start_time = millis();
     output_pot_value = analogRead(ADC_OUTPUT_PIN);
     output_angle = convert_scale(output_pot_value, MAX_BITS, MAX_OUTPUT_ANGLE) - OFFSET_POTENTIOMETER;
@@ -65,7 +65,6 @@ void loop() {
     data_values = String(String(start_time) + ',' + String(input_angle) + ',' + (output_angle) + ',' + String(pwm_value));
     Serial.println(data_values);
     time_s += 0.05;
-    
   }
 
 }
