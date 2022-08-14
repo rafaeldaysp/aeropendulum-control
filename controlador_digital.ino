@@ -24,12 +24,8 @@ float e_1 = 0, e_2 = 0, u_1 = 0, u_2 = 0, input_angle = -1, output_angle, input_
 String data_values;
 
 uint16_t pi(float r, float y) {
-  float Kp = 1, Ki = 0.05, Kd = 0.02, e, u;
-
+  float e, u;
   e = r - y;
-  
-  //u = u_1 + Kp * e + Ki * (e_1 + e) + Kd * (e - e_1);
-  //u = u_1 + 2.4201*e - 1.2754*e_1 - 0.6475 * e_2;
   u = u_1 + 0.016381*e + 0.016381 * e_1;
   /*
    2.4201 (z-0.844) (z+0.317)
@@ -42,7 +38,6 @@ uint16_t pi(float r, float y) {
   else if (u < 0)
     u = 0;
 
-  e_2 = e_1;
   e_1 = e;
   u_1 = u;
 
