@@ -2,10 +2,8 @@
 #include <Arduino.h>
 
 #define ADC_OUTPUT_PIN 15
-#define ADC_INPUT_PIN 4
 #define PWM_PIN 2
 #define SAMPLE_TIME 50
-#define NUM_SAMPLES (30 * 1000/SAMPLE_TIME)
 #define MAX_BITS 4095
 #define MAX_PWM_VALUE 4095
 #define OFFSET_POTENTIOMETER 24
