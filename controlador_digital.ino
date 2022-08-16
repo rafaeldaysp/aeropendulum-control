@@ -10,8 +10,8 @@
 #define MAX_INPUT_ANGLE 90
 #define MAX_OUTPUT_ANGLE 270
 
-int current_time = 0, output_pot_value, pi_value, pwm_value;
-unsigned long start_time = millis();
+int output_pot_value, pi_value, pwm_value;
+unsigned long start_time;
 float e_1 = 0, u_1 = 0, input_angle = -1, output_angle;
 String data_values;
 
@@ -35,7 +35,6 @@ int convert_scale(uint16_t variable, uint16_t max_scale_1, uint16_t max_scale_2)
   return variable*max_scale_2/max_scale_1;
 }
 
-
 void setup() {
   Serial.begin(115200);
   pinMode(PWM_PIN, OUTPUT);
@@ -43,6 +42,7 @@ void setup() {
   ledcSetup(0, 1000, 12);
   input_angle = 0;
   Serial.setTimeout(1);
+  start_time = millis();
 }
 
 float time_s = 0;
