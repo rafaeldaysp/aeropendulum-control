@@ -18,7 +18,7 @@ String data_values;
 uint16_t pi(float r, float y) {
   float e, u;
   e = r - y;
-  u = u_1 + 0.016381*e + 0.016381 * e_1;
+  u = u_1 + 0.016381*(e + e_1);
 
   if (u > MAX_INPUT_ANGLE)
     u = MAX_INPUT_ANGLE;
@@ -47,7 +47,7 @@ void setup() {
 
 float time_s = 0;
 void loop() {
-
+  
   if(millis() - start_time > SAMPLE_TIME){
     start_time = millis();
     output_pot_value = analogRead(ADC_OUTPUT_PIN);
@@ -66,5 +66,5 @@ void loop() {
     Serial.println(data_values);
     time_s += 0.05;
   }
-
+  
 }
