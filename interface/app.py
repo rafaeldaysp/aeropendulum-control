@@ -6,9 +6,7 @@ NAME_WINDOW = 'Aeropêndulo: Controle'
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(NAME_WINDOW)
-BACKGROUND = pygame.transform.scale(
-    pygame.image.load('Images/background.jpg'), (WIDTH, HEIGHT) 
-)
+
 COLORS = {'WHITE': (255, 255, 255), 'BLUE': (100, 40, 255), 'RED': (255, 0, 0), 'PURPLE': (100, 40, 150), 'DARK_RED': (150, 50, 50),
           'GREEN': (0, 255, 0), 'DARK_GREEN': (50, 150, 50)}
 BUTTON_DIMENTIONS = (200, 70)
@@ -30,13 +28,11 @@ GAUGE_ANGLE = Gauge(
         glow=False)
 
 def redraw(input, output):
-    WIN.fill([0,0,0])
+    WIN.fill([50,50,55])
     DISPLAY.draw(WIN)
     START.draw(WIN)
     STOP.draw(WIN)
     text = FONT.render(input, 1, (0, 0, 0))
-    text_title = FONT.render('Controle de Aeropêndulo', 1, (0, 0, 0))
-    #WIN.blit(text_title, (20, 10))
     WIN.blit(text, (DISPLAY.x + 5, Y_DISPLAY))
     GAUGE_ANGLE.draw(percent=float(output))
     pygame.display.update()
