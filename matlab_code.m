@@ -2,21 +2,21 @@ close;
 clc;
 clear;
 
-%% Leitura de dados
+%% Leitura de dados 
 
 dados = csvread('dados_convertidos.csv', 1);
 t = dados(:, 2);
 y = dados(:, 4);
 u = dados(:, 3);
 
-%% Gera função de transferência
+%% Gera função de transferência 
 
 dt = t(2) - t(1);
 data = iddata(y, u, dt);
 sys = tfest(data, 2);
 simulated_sys = lsim(sys, u, t);
 
-%% Plota resultados
+%% Plota resultados 
 
 figure
 
@@ -41,7 +41,7 @@ xlabel('Tempo (s)')
 ylabel('Ângulo (◦)')
 
 
-%% Sistema estimado
+%% Sistema estimado 
 
 Gs = sys;
 Gz = c2d(sys, dt);
