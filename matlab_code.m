@@ -27,7 +27,7 @@ plot(t, y)
 legend('Entrada Degrau', 'Saída')
 xlabel('Tempo (s)')
 ylabel('Ângulo (◦)')
-title('Resultados');
+title('Coletado');
 
 subplot(2, 1, 2)
 plot(t, u);
